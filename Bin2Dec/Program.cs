@@ -6,18 +6,29 @@ namespace Bin2Dec
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter up to 8 binary digits: ");
+            Console.Write("Enter up to 8 binary digits: ");
 
-            var number = Console.ReadLine();
+            int number;
 
-            bool TryParse(string? s, out byte result);
+            string input = Console.ReadLine();
+            if (input.Length <= 8)
+            {
+                if (int.TryParse(input, out number))
+                {
+                    int decNum = Convert.ToInt32(number.ToString(), 2);
 
-            Console.WriteLine(number);
-
-            //if (number Contains 0)
-            //{
-            //    Console.WriteLine($"Число {num1} больше числа {num2}");
-            //}
+                    Console.WriteLine(decNum);
+                }
+                else
+                {
+                    Console.WriteLine("It is not a number");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You should enter up to 8 binary digits!");
+            }
+            
         }
     }
 }
